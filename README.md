@@ -1,0 +1,1 @@
+this is a mobile application I am developing that will allow users to register an account, save favorite quotes and receive daily quotes of affirmation to keep them focused and positive throughout the day.
