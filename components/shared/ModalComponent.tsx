@@ -1,5 +1,13 @@
-import React, { RefCallback, useState } from "react";
-import { Alert, Modal, StyleSheet, Text, View, Pressable } from "react-native";
+import React, { useState } from "react";
+import {
+	Alert,
+	Modal,
+	StyleSheet,
+	Text,
+	View,
+	Pressable,
+	TextInput,
+} from "react-native";
 import { SafeAreaView, SafeAreaProvider } from "react-native-safe-area-context";
 import { BlurView } from "expo-blur";
 
@@ -10,7 +18,9 @@ const styles = StyleSheet.create({
 		alignItems: "center",
 	},
 	modalView: {
+		width: 300,
 		margin: 20,
+		height: 300,
 		backgroundColor: "white",
 		borderRadius: 20,
 		padding: 35,
@@ -28,6 +38,16 @@ const styles = StyleSheet.create({
 		borderRadius: 20,
 		padding: 10,
 		elevation: 2,
+		margin: 10,
+		width: 100,
+		height: 50,
+		justifyContent: "center",
+	},
+	buttonPrimary: {
+		backgroundColor: "blue",
+	},
+	buttonSecondary: {
+		backgroundColor: "gray",
 	},
 	buttonOpen: {
 		backgroundColor: "#F194FF",
@@ -44,6 +64,19 @@ const styles = StyleSheet.create({
 		marginBottom: 15,
 		textAlign: "center",
 	},
+	input: {
+		height: 40,
+		width: 275,
+		borderRadius: 10,
+		margin: 12,
+		borderWidth: 1,
+		padding: 10,
+	},
+	buttonContainer: {
+		justifyContent: "flex-start",
+		flex: 1,
+		flexDirection: "row",
+	},
 });
 
 export default function ModalComponent({
@@ -53,6 +86,11 @@ export default function ModalComponent({
 	isVisible: boolean;
 	onClose: CallableFunction;
 }) {
+	const [userLoginInformation, setUserLoginInformation] = useState({
+		username: "",
+		password: "",
+	});
+
 	return (
 		<SafeAreaProvider>
 			<SafeAreaView style={styles.centeredView}>
@@ -70,12 +108,49 @@ export default function ModalComponent({
 						style={styles.centeredView}>
 						<View style={styles.centeredView}>
 							<View style={styles.modalView}>
-								<Text style={styles.modalText}>Hello World!</Text>
-								<Pressable
-									style={[styles.button, styles.buttonClose]}
-									onPress={() => onClose()}>
-									<Text style={styles.textStyle}>Hide Modal</Text>
-								</Pressable>
+								<Text style={styles.modalText}>Log In to Continue</Text>
+								<TextInput
+									style={styles.input}
+									value={userLoginInformation.username}
+									onChangeText={(text) =>
+										setUserLoginInformation({
+											...userLoginInformation,
+											username: text,
+										})
+									}
+									placeholder="username"
+								/>
+								<TextInput
+									style={styles.input}
+									value={userLoginInformation.password}
+									onChangeText={(text) =>
+										setUserLoginInformation({
+											...userLoginInformation,
+											password: text,
+										})
+									}
+									placeholder="password"
+								/>
+								<View style={styles.buttonContainer}>
+									<Pressable
+										style={[
+											styles.button,
+											styles.buttonClose,
+											styles.buttonSecondary,
+										]}
+										onPress={() => onClose()}>
+										<Text style={styles.textStyle}>Close</Text>
+									</Pressable>
+									<Pressable
+										style={[
+											styles.button,
+											styles.buttonClose,
+											styles.buttonPrimary,
+										]}
+										onPress={() => onClose()}>
+										<Text style={styles.textStyle}>Log In</Text>
+									</Pressable>
+								</View>
 							</View>
 						</View>
 					</BlurView>
