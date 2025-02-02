@@ -8,7 +8,10 @@ import {
 	ScrollView,
 	SafeAreaView,
 	TouchableOpacity,
+	Pressable,
+	Modal,
 } from "react-native";
+import ModalComponent from "./shared/ModalComponent";
 
 interface IUserLoginDetails {
 	user: string;
@@ -39,6 +42,15 @@ export default function AppHeader() {
 		user: "Test",
 		password: "test1234",
 	});
+	const [isModalVisible, setIsModalVisible] = useState(false);
+
+	const handleModalOpen = () => {
+		setIsModalVisible(true);
+	};
+
+	const handleModalClose = () => {
+		setIsModalVisible(false);
+	};
 
 	const login = ({ user, password }: { user: string; password: string }) => {
 		console.log(user, password);
@@ -47,11 +59,18 @@ export default function AppHeader() {
 	return (
 		<View style={styles.header}>
 			<Text style={{ fontSize: 20 }}>Affirmations</Text>
-			<TouchableOpacity onPress={() => login(userLoginDetails)}>
-				<Text style={styles.userButton}>
-					{isUserLoggedIn ? "Account" : "Sign In"}
-				</Text>
-			</TouchableOpacity>
+			<View>
+				<Pressable onPress={() => handleModalOpen()}>
+					<Text style={styles.userButton}>
+						{isUserLoggedIn ? "Account" : "Sign In"}
+					</Text>
+				</Pressable>
+				<ModalComponent
+					isVisible={isModalVisible}
+					onClose={() => handleModalClose()}
+				/>
+				<Text style={styles.userButton}></Text>
+			</View>
 		</View>
 	);
 }
