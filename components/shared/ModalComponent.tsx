@@ -91,6 +91,15 @@ export default function ModalComponent({
 		password: "",
 	});
 
+	const onLogin = (userLoginInformation: any) => {
+		console.log(userLoginInformation);
+		if (
+			!userLoginInformation.username.length ||
+			!userLoginInformation.password.length
+		)
+			return;
+		else onClose();
+	};
 	return (
 		<SafeAreaProvider>
 			<SafeAreaView style={styles.centeredView}>
@@ -147,7 +156,7 @@ export default function ModalComponent({
 											styles.buttonClose,
 											styles.buttonPrimary,
 										]}
-										onPress={() => onClose()}>
+										onPress={() => onLogin(userLoginInformation)}>
 										<Text style={styles.textStyle}>Log In</Text>
 									</Pressable>
 								</View>
