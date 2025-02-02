@@ -1,6 +1,7 @@
 import React, { RefCallback, useState } from "react";
 import { Alert, Modal, StyleSheet, Text, View, Pressable } from "react-native";
 import { SafeAreaView, SafeAreaProvider } from "react-native-safe-area-context";
+import { BlurView } from "expo-blur";
 
 const styles = StyleSheet.create({
 	centeredView: {
@@ -16,8 +17,8 @@ const styles = StyleSheet.create({
 		alignItems: "center",
 		shadowColor: "#000",
 		shadowOffset: {
-			width: 0,
-			height: 2,
+			width: 5,
+			height: 5,
 		},
 		shadowOpacity: 0.25,
 		shadowRadius: 4,
@@ -56,23 +57,28 @@ export default function ModalComponent({
 		<SafeAreaProvider>
 			<SafeAreaView style={styles.centeredView}>
 				<Modal
-					animationType="slide"
+					animationType="fade"
 					transparent={true}
 					visible={isVisible}
 					onRequestClose={() => {
 						Alert.alert("Modal has been closed.");
 						onClose();
 					}}>
-					<View style={styles.centeredView}>
-						<View style={styles.modalView}>
-							<Text style={styles.modalText}>Hello World!</Text>
-							<Pressable
-								style={[styles.button, styles.buttonClose]}
-								onPress={() => onClose()}>
-								<Text style={styles.textStyle}>Hide Modal</Text>
-							</Pressable>
+					<BlurView
+						intensity={100}
+						tint="dark"
+						style={styles.centeredView}>
+						<View style={styles.centeredView}>
+							<View style={styles.modalView}>
+								<Text style={styles.modalText}>Hello World!</Text>
+								<Pressable
+									style={[styles.button, styles.buttonClose]}
+									onPress={() => onClose()}>
+									<Text style={styles.textStyle}>Hide Modal</Text>
+								</Pressable>
+							</View>
 						</View>
-					</View>
+					</BlurView>
 				</Modal>
 			</SafeAreaView>
 		</SafeAreaProvider>
