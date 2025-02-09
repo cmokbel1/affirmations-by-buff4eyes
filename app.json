@@ -29,6 +29,7 @@
       "favicon": "./assets/favicon.png"
     },
     "extra": {
+      "mongodb": "${process.env.EXPO_PUBLIC_MONGODB_URL}",
       "eas": {
         "projectId": "e14afeb2-1e5b-4af5-b169-88d611567c0b"
       }
