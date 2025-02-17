@@ -3,17 +3,13 @@ import React from "react";
 
 const styles = StyleSheet.create({
 	heroImageContainer: {
-		backgroundColor: "#FCFCFC",
-		justifyContent: "center",
-		alignItems: "center",
-		width: "100%",
-		height: 220,
-		marginTop: 20,
-		flex: 1,
+		height: 50,
+		width: 50,
 	},
 	image: {
 		width: "100%",
 		height: "100%",
+		objectFit: "contain",
 	},
 });
 

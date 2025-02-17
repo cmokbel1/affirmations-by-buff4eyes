@@ -62,7 +62,7 @@ export default function App() {
 		setLoadingQuote(true);
 		e.preventDefault();
 		const quote = await getQuote();
-		console.log(quote);
+		console.log("quote:", quote);
 		setLoadingQuote(false);
 	};
 
@@ -70,7 +70,6 @@ export default function App() {
 		<SafeAreaView style={styles.container}>
 			<ScrollView>
 				<AppHeader />
-				<HeroImage />
 				<Separator />
 				<AppSubTitle />
 				<Separator />
@@ -81,7 +80,7 @@ export default function App() {
 				/>
 				<View>
 					<TouchableOpacity
-						disabled={loadingQuote}
+						disabled={false}
 						style={styles.button}
 						onPress={(e) => handleChange(e)}>
 						<Text

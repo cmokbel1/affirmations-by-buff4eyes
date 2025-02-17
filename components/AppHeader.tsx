@@ -12,6 +12,7 @@ import {
 	Modal,
 } from "react-native";
 import ModalComponent from "./shared/ModalComponent";
+import HeroImage from "./HeroImage";
 
 interface IUserLoginDetails {
 	user: string;
@@ -58,7 +59,7 @@ export default function AppHeader() {
 	};
 	return (
 		<View style={styles.header}>
-			<Text style={{ fontSize: 20 }}>Affirmations</Text>
+			<HeroImage />
 			<View>
 				<Pressable onPress={() => handleModalOpen()}>
 					<Text style={styles.userButton}>
