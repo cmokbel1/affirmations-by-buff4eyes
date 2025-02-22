@@ -138,6 +138,7 @@ export default function ModalComponent({
 											password: text,
 										})
 									}
+									secureTextEntry={true}
 									placeholder="password"
 								/>
 								<View style={styles.buttonContainer}>

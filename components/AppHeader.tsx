@@ -27,6 +27,8 @@ const styles = StyleSheet.create({
 		justifyContent: "space-between",
 		flexDirection: "row",
 		padding: 10,
+		flex: 1,
+		width: "100%",
 	},
 	userButton: {
 		color: "white",

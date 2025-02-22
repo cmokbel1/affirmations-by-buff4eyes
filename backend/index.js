@@ -13,20 +13,16 @@ const PORT = process.env.PORT || 8080;
 const MONGODB_URI =
 	"mongodb+srv://frontend_client:buffirmationsClient@homeworkstuff.mjead.mongodb.net/affirmations-database?retryWrites=true&w=majority";
 app.use((req, res, next) => {
-	console.log("Time:", Date.now());
+	console.log("Time:", Date.now().toLocaleString());
 	next();
 });
-mongoose.set("debug", true);
+
 app.use(bodyParser());
 app.use(cors());
 app.use(express.json());
-// Connect to MongoDB
+
 app.use(routes);
-// app.use(router);
-// app.get("/", async function (req, res) {
-// 	console.log("you are gay");
-// 	res.status(200).json({ text: "Hello World" });
-// });
+
 mongoose.connection = mongoose
 	.connect(MONGODB_URI)
 	.then(() => console.log("MongoDB connected"));
