@@ -8,11 +8,16 @@ import {
 } from "react-native";
 import React from "react";
 import { getQuote } from "../http/getQuote";
+import { Quote } from "../types/quote";
 
 export default function GenerateButton({
 	setLoadingQuote,
 	setDisplayQuote,
 	setError,
+}: {
+	setLoadingQuote: React.Dispatch<React.SetStateAction<boolean>>;
+	setDisplayQuote: React.Dispatch<React.SetStateAction<Quote>>;
+	setError: React.Dispatch<React.SetStateAction<Error | undefined>>;
 }) {
 	const handleChange = async (e: GestureResponderEvent) => {
 		setLoadingQuote(true);
