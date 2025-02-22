@@ -19,24 +19,6 @@ interface IUserLoginDetails {
 	password: string;
 }
 
-const styles = StyleSheet.create({
-	header: {
-		height: 50,
-		backgroundColor: "blue",
-		display: "flex",
-		justifyContent: "space-between",
-		flexDirection: "row",
-		padding: 10,
-		flex: 1,
-		width: "100%",
-	},
-	userButton: {
-		color: "white",
-		fontSize: 16,
-		marginRight: 10,
-	},
-});
-
 export default function AppHeader() {
 	// this should be extracted to a global shared state file
 	const [isUserLoggedIn, setIsUserLoggedIn] = useState<boolean>(false);
@@ -77,3 +59,21 @@ export default function AppHeader() {
 		</View>
 	);
 }
+
+const styles = StyleSheet.create({
+	header: {
+		height: 50,
+		backgroundColor: "blue",
+		display: "flex",
+		justifyContent: "space-between",
+		flexDirection: "row",
+		padding: 10,
+		flex: 1,
+		width: "100%",
+	},
+	userButton: {
+		color: "white",
+		fontSize: 16,
+		marginRight: 10,
+	},
+});

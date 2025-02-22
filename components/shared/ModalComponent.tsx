@@ -11,74 +11,6 @@ import {
 import { SafeAreaView, SafeAreaProvider } from "react-native-safe-area-context";
 import { BlurView } from "expo-blur";
 
-const styles = StyleSheet.create({
-	centeredView: {
-		flex: 1,
-		justifyContent: "center",
-		alignItems: "center",
-	},
-	modalView: {
-		width: 300,
-		margin: 20,
-		height: 300,
-		backgroundColor: "white",
-		borderRadius: 20,
-		padding: 35,
-		alignItems: "center",
-		shadowColor: "#000",
-		shadowOffset: {
-			width: 5,
-			height: 5,
-		},
-		shadowOpacity: 0.25,
-		shadowRadius: 4,
-		elevation: 5,
-	},
-	button: {
-		borderRadius: 20,
-		padding: 10,
-		elevation: 2,
-		margin: 10,
-		width: 100,
-		height: 50,
-		justifyContent: "center",
-	},
-	buttonPrimary: {
-		backgroundColor: "blue",
-	},
-	buttonSecondary: {
-		backgroundColor: "gray",
-	},
-	buttonOpen: {
-		backgroundColor: "#F194FF",
-	},
-	buttonClose: {
-		backgroundColor: "#2196F3",
-	},
-	textStyle: {
-		color: "white",
-		fontWeight: "bold",
-		textAlign: "center",
-	},
-	modalText: {
-		marginBottom: 15,
-		textAlign: "center",
-	},
-	input: {
-		height: 40,
-		width: 275,
-		borderRadius: 10,
-		margin: 12,
-		borderWidth: 1,
-		padding: 10,
-	},
-	buttonContainer: {
-		justifyContent: "flex-start",
-		flex: 1,
-		flexDirection: "row",
-	},
-});
-
 export default function ModalComponent({
 	isVisible,
 	onClose,
@@ -169,3 +101,71 @@ export default function ModalComponent({
 		</SafeAreaProvider>
 	);
 }
+
+const styles = StyleSheet.create({
+	centeredView: {
+		flex: 1,
+		justifyContent: "center",
+		alignItems: "center",
+	},
+	modalView: {
+		width: 300,
+		margin: 20,
+		height: 300,
+		backgroundColor: "white",
+		borderRadius: 20,
+		padding: 35,
+		alignItems: "center",
+		shadowColor: "#000",
+		shadowOffset: {
+			width: 5,
+			height: 5,
+		},
+		shadowOpacity: 0.25,
+		shadowRadius: 4,
+		elevation: 5,
+	},
+	button: {
+		borderRadius: 20,
+		padding: 10,
+		elevation: 2,
+		margin: 10,
+		width: 100,
+		height: 50,
+		justifyContent: "center",
+	},
+	buttonPrimary: {
+		backgroundColor: "blue",
+	},
+	buttonSecondary: {
+		backgroundColor: "gray",
+	},
+	buttonOpen: {
+		backgroundColor: "#F194FF",
+	},
+	buttonClose: {
+		backgroundColor: "#2196F3",
+	},
+	textStyle: {
+		color: "white",
+		fontWeight: "bold",
+		textAlign: "center",
+	},
+	modalText: {
+		marginBottom: 15,
+		textAlign: "center",
+	},
+	input: {
+		height: 40,
+		width: 275,
+		borderRadius: 10,
+		margin: 12,
+		borderWidth: 1,
+		padding: 10,
+	},
+	buttonContainer: {
+		justifyContent: "flex-start",
+		flex: 1,
+		flexDirection: "row",
+	},
+});

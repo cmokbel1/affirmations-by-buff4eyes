@@ -9,25 +9,6 @@ import {
 import React from "react";
 import { getQuote } from "../http/getQuote";
 
-const styles = StyleSheet.create({
-	buttonContainer: {
-		flex: 1,
-		padding: 10,
-	},
-	button: {
-		flex: 1,
-		marginTop: 65,
-		paddingVertical: 8,
-		borderWidth: 1.5,
-		borderColor: "#99E1D9",
-		borderRadius: 20,
-		backgroundColor: "#99E1D9",
-		color: "#20232a",
-		fontSize: 60,
-		fontWeight: "bold",
-	},
-});
-
 export default function GenerateButton({
 	setLoadingQuote,
 	setDisplayQuote,
@@ -64,3 +45,22 @@ export default function GenerateButton({
 		</View>
 	);
 }
+
+const styles = StyleSheet.create({
+	buttonContainer: {
+		flex: 1,
+		padding: 10,
+	},
+	button: {
+		flex: 1,
+		marginTop: 65,
+		paddingVertical: 8,
+		borderWidth: 1.5,
+		borderColor: "#99E1D9",
+		borderRadius: 20,
+		backgroundColor: "#99E1D9",
+		color: "#20232a",
+		fontSize: 60,
+		fontWeight: "bold",
+	},
+});

@@ -9,35 +9,6 @@ import {
 	useAnimatedValue,
 } from "react-native";
 
-const styles = StyleSheet.create({
-	quoteCardContainer: {
-		backgroundColor: "#FFFFFF",
-		paddingTop: 50,
-		paddingBottom: 50,
-		padding: 10,
-	},
-	quote: {
-		fontSize: 20,
-	},
-	author: {
-		fontSize: 18,
-		fontWeight: "bold",
-		textAlign: "right",
-	},
-	loading: {
-		textAlign: "center",
-		fontSize: 30,
-	},
-	error: {
-		textAlign: "center",
-		fontSize: 30,
-		color: "darkred",
-	},
-	alternateState: {
-		opacity: 0,
-	},
-});
-
 export default function QuoteDisplayCard({
 	quote,
 	author,
@@ -95,3 +66,32 @@ export default function QuoteDisplayCard({
 		</View>
 	);
 }
+
+const styles = StyleSheet.create({
+	quoteCardContainer: {
+		backgroundColor: "#FFFFFF",
+		paddingTop: 50,
+		paddingBottom: 50,
+		padding: 10,
+	},
+	quote: {
+		fontSize: 20,
+	},
+	author: {
+		fontSize: 18,
+		fontWeight: "bold",
+		textAlign: "right",
+	},
+	loading: {
+		textAlign: "center",
+		fontSize: 30,
+	},
+	error: {
+		textAlign: "center",
+		fontSize: 30,
+		color: "darkred",
+	},
+	alternateState: {
+		opacity: 0,
+	},
+});
