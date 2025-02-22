@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import {
 	View,
 	StyleSheet,
@@ -20,28 +20,42 @@ export default function QuoteDisplayCard({
 	loadingQuote: boolean;
 	error?: Error;
 }) {
-	const fadeAnim = useAnimatedValue(0);
-	const fadeIn = () => {
-		// Will change fadeAnim value to 1 in 5 seconds
-		Animated.timing(fadeAnim, {
-			toValue: 1,
-			duration: 2000,
-			useNativeDriver: true,
-		}).start();
-	};
+	const fadeAnim = useRef(new Animated.Value(0)).current;
 
-	const fadeOut = () => {
-		// Will change fadeAnim value to 0 in 3 seconds
-		Animated.timing(fadeAnim, {
-			toValue: 0,
-			duration: 2500,
-			useNativeDriver: true,
-		}).start();
+	const flashText = () => {
+		Animated.sequence([
+			// Will change fadeAnim value to 1 in 5 seconds
+			Animated.timing(fadeAnim, {
+				toValue: 1,
+				duration: 2000,
+				useNativeDriver: true,
+			}),
+			Animated.delay(500),
+			Animated.timing(fadeAnim, {
+				toValue: 0,
+				duration: 2500,
+				useNativeDriver: true,
+			}),
+			Animated.delay(500),
+			Animated.timing(fadeAnim, {
+				toValue: 1,
+				duration: 2000,
+				useNativeDriver: true,
+			}),
+		]).start();
 	};
 
 	useEffect(() => {
-		fadeIn();
-	}, [loadingQuote, error]);
+		if (loadingQuote || error) {
+			flashText();
+		} else {
+			Animated.timing(fadeAnim, {
+				toValue: 1,
+				duration: 2000,
+				useNativeDriver: true,
+			}).start();
+		}
+	}, [loadingQuote, error, fadeAnim]);
 	return (
 		<View style={styles.quoteCardContainer}>
 			<Animated.View
