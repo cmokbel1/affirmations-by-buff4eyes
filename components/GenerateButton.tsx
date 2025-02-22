@@ -16,7 +16,7 @@ export default function GenerateButton({
 	setError,
 }: {
 	setLoadingQuote: React.Dispatch<React.SetStateAction<boolean>>;
-	setDisplayQuote: React.Dispatch<React.SetStateAction<Quote>>;
+	setDisplayQuote: React.Dispatch<React.SetStateAction<Quote | undefined>>;
 	setError: React.Dispatch<React.SetStateAction<Error | undefined>>;
 }) {
 	const handleChange = async (e: GestureResponderEvent) => {
